@@ -16,12 +16,6 @@ export default function RootLayout({
       <body className="bg-gray-50">
         <Header />
         <main className="pt-16">{children}</main>
-        <footer className="bg-gray-800 text-white py-4 mt-16">
-          <div className="container mx-auto text-center">
-            &copy; {new Date().getFullYear()} ドミトリー予約サイト.
-            全著作権所有.
-          </div>
-        </footer>
       </body>
     </html>
   );
