@@ -1,18 +1,18 @@
-import Image from "next/image";
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="-min-h-screen flex flex-col items-center justify-center bg-gray-50 p-8">
-      <header className="h-22 w-screen fixed top-0 left-0 bg-green-500 py-4 z-10 mb-8">
-       <h1 className="text-2xl">どみとｒｙ</h1>
-      </header>
-      <main className="text-center">
-        <p className="mb-4 text-lg">
-         noriyukihaunnkodesu
-        </p>
-      </main>
-      <footer className="mt-12 text-gray-500">
-      </footer>
+    <div className="container mx-auto py-16">
+      <h1 className="text-4xl font-bold mb-8">Welcome to Our Dormitory</h1>
+      <p className="text-lg">
+        Discover comfortable and affordable accommodations for your stay.
+      </p>
+      <div className="mt-8">
+        <a
+          href="/booking"
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
+          Book Now
+        </a>
+      </div>
     </div>
   );
 }
