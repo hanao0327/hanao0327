@@ -1,0 +1,68 @@
+/* ヘッダー全体のスタイル */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #38a169; /* 統一された緑色 */
+  z-index: 10;
+  display: flex;
+  flex-direction: column; /* 縦方向に配置 */
+  align-items: center;
+  padding: 10px 0; /* ヘッダー全体の余白 */
+}
+
+/* ヘッダー内のコンテナ */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* ロゴのスタイル */
+.header-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px; /* ロゴとボタンの間にスペースを追加 */
+  text-align: center;
+}
+
+/* ナビゲーションメニュー */
+.header-nav {
+  width: 100%;
+}
+
+.header-menu {
+  display: flex;
+  justify-content: center; /* ボタンを中央揃え */
+  gap: 30px; /* ボタン間のスペース */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header-link {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.header-link:hover {
+  color: #e2e8f0; /* ホバー時の色 */
+}
+
+/* ログインボタンのスタイル */
+.header-login {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+.header-login .header-link {
+  font-weight: bold;
+}

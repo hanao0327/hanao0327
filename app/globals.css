@@ -21,10 +21,12 @@
 
 body {
   margin: 0;
+  padding: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  padding-top: 80px; /* ヘッダーの高さ分の余白を追加 */
 }
 
 .container {
