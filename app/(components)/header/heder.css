@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column; /* 縦方向に配置 */
   align-items: center;
-  padding: 10px 0; /* ヘッダー全体の余白 */
+  padding: 16px 0; /* ヘッダー全体の余白 */
 }
 
 /* ヘッダー内のコンテナ */
@@ -38,6 +38,7 @@
 
 .header-menu {
   display: flex;
+<<<<<<< HEAD
   justify-content: flex-start; /* ボタンを左寄せ */
   gap: 30px; /* ボタン間のスペース */
   list-style: none;
@@ -45,12 +46,17 @@
   margin: 0;
   /* ↓ここのサイズでメニューの左のスペース変えれる */
   padding-left: 50px;
+=======
+  gap: 30px; /* ボタン間のスペース */
+  list-style: none;
+  margin-left: 16%; /* メニュー全体を右に少し移動 */
+>>>>>>> 1c6f084 (画像追加へっだーｃｓｓ)
 }
 
 .header-link {
   color: white;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 18px; /* フォントサイズを少し大きく */
   transition: color 0.3s;
 }
 
@@ -67,4 +73,6 @@
 
 .header-login .header-link {
   font-weight: bold;
+  font-size: 18px; /* ログインボタンも同じフォントサイズに調整 */
+  padding: 12px 24px; /* ログインボタンも同じ内側の余白に調整 */
 }

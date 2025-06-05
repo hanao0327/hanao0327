@@ -1,5 +1,14 @@
+/* 上部余白と背景画像のスタイル */
+.heroSection {
+  height: 800px; /* 必要な分だけ余白を確保 */
+  background-image: url('/images/homebackground.jpg'); /* 背景画像を指定 */
+  background-size: cover; /* 画像を全体にフィット */
+  background-position: center; /* 画像を中央に配置 */
+  background-repeat: no-repeat; /* 画像を繰り返さない */
+}
+
 /* コンテナ全体のスタイル */
-.container {
+Add commentMore actions .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 16px;
