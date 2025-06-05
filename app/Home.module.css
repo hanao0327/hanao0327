@@ -1,10 +1,41 @@
 /* 上部余白と背景画像のスタイル */
 .heroSection {
-  height: 800px; /* 必要な分だけ余白を確保 */
-  background-image: url('/images/homebackground.jpg'); /* 背景画像を指定 */
+  height: 1600px; /* 必要な分だけ余白を確保 */
+  background-image: url('/images/best.png'); /* 背景画像を指定 */
   background-size: cover; /* 画像を全体にフィット */
   background-position: center; /* 画像を中央に配置 */
   background-repeat: no-repeat; /* 画像を繰り返さない */
+  display: flex;
+  justify-content: flex-start; /* コンセプト文を上部に配置 */
+  align-items: flex-start; /* コンセプト文を上部に配置 */
+  position: bottom;
+  margin-right: 0px;
+}
+
+.heroSection::before {
+  content: ''; /* 疑似要素に必須 */
+  width: 100%; /* 幅いっぱい */
+  height: 100%; /* 高さいっぱい */
+  display: block; /* 高さを指定するためにブロック要素にする */
+  background: linear-gradient(
+    rgba(255, 255, 255, 0) 0,
+    #fff 60%
+  ); /* 徐々に透明にする */
+  position: absolute; /*  */
+  top: 1000px;
+  left: 0;
+}
+
+/* コンセプト文のスタイル */
+.conceptText {
+  text-align: right; /* テキストを右揃えに変更 */
+  color: rgb(234, 221, 221);
+  padding: 20px;
+  border-radius: 8px;
+  margin-left: auto; /* 左側の余白を自動設定して右寄りに配置 */
+  margin-right: 20px; /* 右側に余白を追加 */
+  font-size: 6rem;
+  font-weight: 900;
 }
 
 /* コンテナ全体のスタイル */

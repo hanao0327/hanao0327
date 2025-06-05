@@ -17,6 +17,8 @@ export default function Header() {
           <Link href="/login" className="header-link">
             ログイン
           </Link>
+          {/* JAPANESEボタン */}
+          <button className="language-button">JAPANESE</button>
         </div>
       </div>
       <nav className="header-nav">

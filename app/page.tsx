@@ -4,7 +4,15 @@ export default function Home() {
   return (
     <div>
       {/* 上部余白と背景画像 */}
-      <div className={styles.heroSection}></div>
+      <div className={styles.heroSection}>
+        <div className={styles.conceptText}>
+          <p>
+            思い出のひとつに
+            <br />
+            真志を、、{/* 改行を追加 */}
+          </p>
+        </div>
+      </div>
 
       <div className={styles.container}>
         {/* ドミトリーの紹介 */}
