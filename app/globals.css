@@ -27,7 +27,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-serif); /* 明朝体を適用 */
   line-height: 1.6;
-  padding-top: 45px; /* ヘッダーの高さ分の余白を追加 */
+  padding-top: 17px; /* ヘッダーの高さ分の余白を追加 */
 }
 
 .container {

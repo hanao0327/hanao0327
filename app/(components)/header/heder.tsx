@@ -6,7 +6,13 @@ export default function Header() {
     <header className="header">
       <div className="header-container">
         {/* ドミトリーのロゴ */}
-        <div className="header-logo">ドミトリー</div>
+        <div className="header-logo">
+          <img
+            src="/images/logo.png"
+            alt="ドミトリーロゴ"
+            className="logo-image"
+          />
+        </div>
         <div className="header-login">
           <Link href="/login" className="header-link">
             ログイン
