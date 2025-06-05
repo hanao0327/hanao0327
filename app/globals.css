@@ -5,11 +5,12 @@
   --foreground: #171717;
 }
 
-@theme inline {
+:root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: 'Times New Roman', serif; /* 明朝体を指定 */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,9 +25,9 @@ body {
   padding: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, sans-serif;
+  font-family: var(--font-serif); /* 明朝体を適用 */
   line-height: 1.6;
-  padding-top: 80px; /* ヘッダーの高さ分の余白を追加 */
+  padding-top: 17px; /* ヘッダーの高さ分の余白を追加 */
 }
 
 .container {
