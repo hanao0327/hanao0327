@@ -5,7 +5,14 @@ import { useRouter } from 'next/navigation'; // ルーターを使用してリ�
 import styles from './page.module.css';
 
 // 仮のデータをコンポーネント外部に移動
-const mockData = {
+type Reservation = { name: string; profile: string };
+type MockData = {
+  [date: string]: {
+    reservations: Reservation[];
+  };
+};
+
+const mockData: MockData = {
   '2025-06-01': {
     reservations: [
       { name: '山田 太郎', profile: 'https://via.placeholder.com/50' },

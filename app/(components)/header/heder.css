@@ -42,27 +42,16 @@
 .header-nav {
   width: 100%;
 }
-
 .header-menu {
   display: flex;
-<<<<<<< HEAD
   justify-content: flex-start; /* ボタンを左寄せ */
   gap: 30px; /* ボタン間のスペース */
   list-style: none;
   padding: 0;
   margin: 0;
-  /* ↓ここのサイズでメニューの左のスペース変えれる */
-  padding-left: 50px;
-=======
-  gap: 30px; /* ボタン間のスペース */
-  list-style: none;
-<<<<<<< HEAD
-  margin-left: 16%; /* メニュー全体を右に少し移動 */
->>>>>>> 1c6f084 (画像追加へっだーｃｓｓ)
-=======
+  padding-left: 50px; /* メニューの左のスペースを調整 */
   margin-left: 23%; /* メニュー全体を右に少し移動 */
-  margin-top: -2%;
->>>>>>> 0850cf0 (スライド用)
+  margin-top: -2%; /* メニューの上部位置を調整 */
 }
 
 .header-link {
