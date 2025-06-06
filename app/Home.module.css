@@ -1,6 +1,6 @@
 /* 上部余白と背景画像のスタイル */
 .heroSection {
-  height: 1600px; /* 必要な分だけ余白を確保 */
+  height: 1610px; /* 必要な分だけ余白を確保 */
   background-image: url('/images/best.png'); /* 背景画像を指定 */
   background-size: cover; /* 画像を全体にフィット */
   background-position: center; /* 画像を中央に配置 */
@@ -47,22 +47,30 @@ Add commentMore actions .container {
 
 /* セクションの余白 */
 .section {
-  margin-bottom: 64px;
+  margin-bottom: 150px;
+  padding-left: 15%;
+  padding-right: 15%;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 /* 見出しのスタイル */
 .heading {
-  font-size: 2rem;
+  font-size: 4rem;
   font-weight: bold;
   margin-bottom: 16px;
-  color: #2d3748; /* ダークグレー */
+  color: #030e21; /* ダークグレー */
+  text-align: center;
 }
 
 /* テキストのスタイル */
 .text {
-  font-size: 1rem;
+  font-size: 2rem;
   line-height: 1.6;
-  color: #4a5568; /* グレー */
+  color: #000000; /* グレー */
+  padding-left: 5%;
+  padding-right: 5%;
+  white-space: pre-line;
 }
 
 /* アクセスセクションのレイアウト */
@@ -83,6 +91,7 @@ Add commentMore actions .container {
 .mapContainer {
   flex: 1;
   min-width: 300px;
+  height: 600px;
 }
 
 .mapFrame {

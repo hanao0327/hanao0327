@@ -20,6 +20,7 @@ export default function Home() {
           <h1 className={styles.heading}>ドミトリーとは</h1>
           <p className={styles.text}>
             ドミトリーは、知らない人同士が同じ部屋で寝泊まり交流のできる相部屋の宿泊施設です。
+            <br />
             ご自身のプライベートを守るかつほかの旅行者との交流ができ、ドミトリーならではの少し変わった寝泊りが楽しめます。
           </p>
         </section>
