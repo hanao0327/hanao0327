@@ -14,6 +14,9 @@ export default function Header() {
           />
         </div>
         <div className="header-login">
+          {/* Japaneseボタン */}
+          <button className="header-link">Japanese</button>
+          {/* ログインボタン */}
           <Link href="/login" className="header-link">
             ログイン
           </Link>

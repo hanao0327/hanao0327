@@ -74,7 +74,7 @@
 
 .header-login .header-link {
   font-weight: bold;
-  font-size: 25px; /* ログインボタンも同じフォントサイズに調整 */
-  padding: 12px 24px; /* ログインボタンも同じ内側の余白に調整 */
+  font-size: 25px;
+  padding: 12px 24px;
   margin-top: auto;
 }
