@@ -28,18 +28,68 @@ export default function Home() {
         {/* 設備内容 */}
         <section className={styles.section}>
           <h2 className={styles.heading}>設備内容</h2>
-          <ul className="list-disc list-inside space-y-2">
-            <li>和風な内装</li>
-            <img
-              src="/images/japanese-room-style.jpg"
-              alt="和風な内装"
-              className={styles.equipmentImage}
-            />
-            <li>共用キッチン</li>
-            <li>ランドリー設備</li>
-            <li>快適なラウンジスペース</li>
-            <li>24時間セキュリティ</li>
-          </ul>
+          <div className={styles.equipmentGrid}>
+            {/* 共有スペース */}
+
+            <div className={styles.equipmentItem}>
+              <img
+                src="/images/share.jpg"
+                alt="共有スペース"
+                className={styles.equipmentImage}
+              />
+              <p className={styles.equipmentText}>共有スペース</p>
+            </div>
+
+            {/* キッチン */}
+            <div className={styles.equipmentItem}>
+              <img
+                src="/images/kitchen.jpg"
+                alt="キッチン"
+                className={styles.equipmentImage}
+              />
+              <p className={styles.equipmentText}>キッチン</p>
+            </div>
+
+            {/* ベッドルーム（画像と文字を入れ替え） */}
+            <div className={styles.equipmentItem}>
+              <p className={styles.equipmentText}>ベッドルーム</p>
+              <img
+                src="/images/bedroom.jpg"
+                alt="ベッドルーム"
+                className={styles.equipmentImage}
+              />
+            </div>
+
+            {/* ロッカー（画像と文字を入れ替え） */}
+            <div className={styles.equipmentItem}>
+              <p className={styles.equipmentText}>ロッカー</p>
+              <img
+                src="/images/locker.jpg"
+                alt="ロッカー"
+                className={styles.equipmentImage}
+              />
+            </div>
+
+            {/* バスルーム */}
+            <div className={styles.equipmentItem}>
+              <img
+                src="/images/bathroom.jpg"
+                alt="バスルーム"
+                className={styles.equipmentImage}
+              />
+              <p className={styles.equipmentText}>バスルーム</p>
+            </div>
+
+            {/* トイレ（画像と文字を入れ替え） */}
+            <div className={styles.equipmentItem}>
+              <p className={styles.equipmentText}>トイレ</p>
+              <img
+                src="/images/toilet.jpg"
+                alt="トイレ"
+                className={styles.equipmentImage}
+              />
+            </div>
+          </div>
         </section>
 
         {/* アクセス */}
