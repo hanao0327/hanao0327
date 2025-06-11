@@ -100,3 +100,36 @@ Add commentMore actions .container {
   border: 0;
   border-radius: 8px;
 }
+
+/* 設備内容のグリッド */
+.equipmentGrid {
+  display: flex; /* フレックスボックスを使用 */
+  flex-direction: column; /* 縦方向に並べる */
+  gap: 24px; /* 各アイテム間のスペースを広げる */
+  margin-top: 16px;
+  padding-left: 10%; /* 左右の余白を追加 */
+  padding-right: 10%; /* 左右の余白を追加 */
+}
+
+/* 各設備アイテム */
+.equipmentItem {
+  display: flex; /* フレックスボックスで横並びに配置 */
+  align-items: center; /* 縦方向の中央揃え */
+  gap: 24px; /* 画像とテキストの間に余白を追加 */
+  text-align: left; /* テキストを左揃え */
+}
+
+/* 設備画像 */
+.equipmentImage {
+  width: 430px; /* 画像の幅を大きく調整 */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 設備名のテキスト */
+.equipmentText {
+  font-size: 1.5rem; /* テキストのサイズを大きく調整 */
+  font-weight: bold;
+  color: #333;
+}
