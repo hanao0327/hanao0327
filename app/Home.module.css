@@ -56,7 +56,7 @@ Add commentMore actions .container {
 
 /* 見出しのスタイル */
 .heading {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
   margin-bottom: 16px;
   color: #030e21; /* ダークグレー */
@@ -107,8 +107,8 @@ Add commentMore actions .container {
   flex-direction: column; /* 縦方向に並べる */
   gap: 24px; /* 各アイテム間のスペースを広げる */
   margin-top: 16px;
-  padding-left: 10%; /* 左右の余白を追加 */
-  padding-right: 10%; /* 左右の余白を追加 */
+  padding-left: 6%; /* 左右の余白を追加 */
+  padding-right: 6%; /* 左右の余白を追加 */
 }
 
 /* 各設備アイテム */
@@ -117,6 +117,18 @@ Add commentMore actions .container {
   align-items: center; /* 縦方向の中央揃え */
   gap: 24px; /* 画像とテキストの間に余白を追加 */
   text-align: left; /* テキストを左揃え */
+}
+
+/* 偶数番目のアイテム（右端に画像を配置） */
+.equipmentItem:nth-child(even) {
+  flex-direction: row-reverse; /* 順序を逆にする */
+  justify-content: flex-start; /* 左端寄せ */
+}
+
+/* 奇数番目のアイテム（左端に画像を配置） */
+.equipmentItem:nth-child(odd) {
+  flex-direction: row; /* 通常の順序 */
+  justify-content: flex-start; /* 左端寄せ */
 }
 
 /* 設備画像 */
@@ -132,4 +144,516 @@ Add commentMore actions .container {
   font-size: 1.5rem; /* テキストのサイズを大きく調整 */
   font-weight: bold;
   color: #333;
+}
+
+/* ===== 設備内容セクション ===== */
+.facilitiesSection {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+.facilitiesHeading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.facilitiesDivider {
+  height: 4px;
+  width: 80px;
+  background-color: #007bff;
+  margin: 0 auto 40px;
+}
+
+.facilitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.facilityCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.facilityCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.facilityImageContainer {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.facilityImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.facilityOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.facilityOverlay span {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.facilityCard:hover .facilityImage {
+  transform: scale(1.1);
+}
+
+.facilityCard:hover .facilityOverlay {
+  opacity: 1;
+}
+
+.facilityContent {
+  padding: 20px;
+}
+
+.facilityTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.facilityTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #007bff;
+}
+
+.facilityDescription {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ===== アクセスセクション ===== */
+.accessSection {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+.accessHeading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.accessDivider {
+  height: 4px;
+  width: 80px;
+  background-color: #007bff;
+  margin: 0 auto 40px;
+}
+
+.accessDescription {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.accessIntro {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.accessCardContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+
+.accessCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.accessCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.accessIconWrapper {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(0, 123, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  transition: background-color 0.3s ease;
+}
+
+.accessCard:hover .accessIconWrapper {
+  background-color: rgba(0, 123, 255, 0.2);
+}
+
+.accessIcon {
+  width: 35px;
+  height: 35px;
+  fill: #007bff;
+}
+
+.accessCardTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.accessCardText {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.mapWrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 40%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.mapFrame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ===== ドミトリー紹介セクション ===== */
+.dormitorySection {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+.dormitoryHeading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.dormitoryDivider {
+  height: 4px;
+  width: 80px;
+  background-color: #007bff;
+  margin: 0 auto 40px;
+}
+
+.dormitoryContainer {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.dormitoryImageWrapper {
+  flex: 1;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dormitoryImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.dormitoryImageWrapper:hover .dormitoryImage {
+  transform: scale(1.05);
+}
+
+.dormitoryImageOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  padding: 30px 20px 20px;
+  transition: opacity 0.3s ease;
+}
+
+.dormitoryImageOverlay span {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.dormitoryContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dormitoryFeature {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.dormitoryFeatureIcon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0, 123, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.dormitoryFeature:hover .dormitoryFeatureIcon {
+  background-color: rgba(0, 123, 255, 0.2);
+}
+
+.featureIcon {
+  width: 30px;
+  height: 30px;
+  fill: #007bff;
+}
+
+.dormitoryFeatureText {
+  flex: 1;
+}
+
+.dormitoryFeatureTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.dormitoryFeatureDescription {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ロケーション切り替えタブ */
+.locationTabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.locationTab {
+  background-color: #f1f5f9;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.locationTab:hover {
+  background-color: #e2e8f0;
+  color: #334155;
+}
+
+.activeTab {
+  background-color: #007bff;
+  color: white;
+}
+
+.activeTab:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+.locationIcon {
+  font-size: 1.2rem;
+}
+
+/* ロケーションコンテンツ */
+.locationContent {
+  display: none;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.activeContent {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .equipmentItem,
+  .equipmentItem:nth-child(even),
+  .equipmentItem:nth-child(odd) {
+    flex-direction: column; /* 小さい画面では縦並びに変更 */
+    align-items: flex-start; /* 左揃えに変更 */
+  }
+
+  .equipmentImage {
+    width: 100%; /* 画像を親要素の幅に合わせる */
+    max-width: 300px; /* 最大幅を設定 */
+  }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 992px) {
+  .facilitiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .facilitiesHeading {
+    font-size: 2rem;
+  }
+
+  .facilitiesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .facilityImageContainer {
+    height: 200px;
+  }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+  .accessCardContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .accessHeading {
+    font-size: 2rem;
+  }
+
+  .accessCardContainer {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .mapWrapper {
+    padding-bottom: 75%;
+  }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 992px) {
+  .dormitoryContainer {
+    flex-direction: column;
+  }
+
+  .dormitoryImageWrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .dormitoryHeading {
+    font-size: 2rem;
+  }
+
+  .dormitoryFeature {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .dormitoryFeatureIcon {
+    margin-bottom: 12px;
+  }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .locationTabs {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .locationTab {
+    flex: 1;
+    padding: 10px;
+    font-size: 0.9rem;
+    justify-content: center;
+  }
 }
