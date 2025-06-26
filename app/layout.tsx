@@ -1,5 +1,6 @@
 import './globals.css';
-import Header from './(components)/header/heder';
+import Header from './(components)/header/header';
+import styles from './(components)/header/header.module.css';
 
 export const metadata = {
   title: 'ドミトリー予約サイト',

@@ -16,17 +16,17 @@
 }
 
 /* ヘッダー内のコンテナ */
-.header-container {
+.headerContainer {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 325px;
   width: 100%;
   padding: 0 20px;
 }
 
 /* ロゴのスタイル */
-.header-logo {
+.headerLogo {
   display: flex;
   align-items: center;
   text-align: left;
@@ -39,10 +39,10 @@
 }
 
 /* ナビゲーションメニュー */
-.header-nav {
+.headerNav {
   width: 100%;
 }
-.header-menu {
+.headerMenu {
   display: flex;
   justify-content: flex-start; /* ボタンを左寄せ */
   gap: 30px; /* ボタン間のスペース */
@@ -54,25 +54,25 @@
   margin-top: -2%; /* メニューの上部位置を調整 */
 }
 
-.header-link {
+.headerLink {
   color: white;
   text-decoration: none;
   font-size: 22px; /* フォントサイズを少し大きく */
   transition: color 0.3s;
 }
 
-.header-link:hover {
+.headerLink:hover {
   color: #e2e8f0; /* ホバー時の色 */
 }
 
 /* ログインボタンのスタイル */
-.header-login {
+.headerLogin {
   position: absolute;
   top: 15px;
   right: 20px;
 }
 
-.header-login .header-link {
+.headerLogin .headerLink {
   font-weight: bold;
   font-size: 25px;
   padding: 12px 24px;
