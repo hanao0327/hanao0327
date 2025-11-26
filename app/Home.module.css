@@ -1,40 +1,61 @@
 /* 上部余白と背景画像のスタイル */
 .heroSection {
-  height: 1610px; /* 必要な分だけ余白を確保 */
-  background-image: url('/images/best.png'); /* 背景画像を指定 */
-  background-size: cover; /* 画像を全体にフィット */
-  background-position: center; /* 画像を中央に配置 */
-  background-repeat: no-repeat; /* 画像を繰り返さない */
+  /* 画面内で画像の左右・上下の端がすべて見えるように調整 */
+  min-height: 100vh; /* ビューポート高さを確保して縦方向も収まるように */
+  height: 100vh; /* 必要に応じて min-height に戻す（auto／固定に調整可） */
+  width: 100vw; /* ビューポート幅いっぱいにする */
+  margin-left: calc(
+    50% - 50vw
+  ); /* ページ中央レイアウト内でも左右端を画面端に合わせる */
+  background-image: url('/images/mokei.png');
+  background-size: 100% auto; /* 横幅を画面幅にフィットさせて左右端を表示 */
+  background-position: center center; /* 中央寄せで上下左右を均等に表示 */
+  background-repeat: no-repeat;
   display: flex;
-  justify-content: flex-start; /* コンセプト文を上部に配置 */
-  align-items: flex-start; /* コンセプト文を上部に配置 */
-  position: bottom;
-  margin-right: 0px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  padding-top: 2rem;
+  overflow: visible;
 }
 
 .heroSection::before {
-  content: ''; /* 疑似要素に必須 */
-  width: 100%; /* 幅いっぱい */
-  height: 100%; /* 高さいっぱい */
-  display: block; /* 高さを指定するためにブロック要素にする */
-  background: linear-gradient(
-    rgba(255, 255, 255, 0) 0,
-    #fff 60%
-  ); /* 徐々に透明にする */
-  position: absolute; /*  */
-  top: 1000px;
+  content: '';
+  position: absolute;
   left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  /* 方法A: グラデ停止位置を下げる（推奨） */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 85%,
+    /* 以前の60% -> 80% に変更（フェード開始を下げる） */
+      rgba(255, 255, 255, 0.9) 96%,
+    /* 以前の92% -> 96% に変更（フェード終了を下げる） */ #fff 100%
+  );
+
+  /* 方法B: 疑似要素を下にずらす（固定ピクセルで調整したい場合）
+     こちらを使う場合は上の background の%を元に戻すか併用で微調整します */
+  /* top: 120px; */
+  /* background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 80%, #fff 100%); */
+
+  pointer-events: none;
+  z-index: 1;
 }
 
-/* コンセプト文のスタイル */
+/* コンセプト文をオーバーレイより前面に出す */
 .conceptText {
-  text-align: right; /* テキストを右揃えに変更 */
+  position: relative;
+  z-index: 2;
+  text-align: right;
   color: rgb(234, 221, 221);
   padding: 20px;
   border-radius: 8px;
-  margin-left: auto; /* 左側の余白を自動設定して右寄りに配置 */
-  margin-right: 20px; /* 右側に余白を追加 */
-  font-size: 6rem;
+  margin-left: auto;
+  margin-right: 20px;
+  font-size: clamp(2rem, 6vw, 6rem); /* 画面幅に応じて縮小 */
   font-weight: 900;
 }
 
