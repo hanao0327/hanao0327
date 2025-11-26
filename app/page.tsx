@@ -13,9 +13,9 @@ export default function Home() {
       <div className={styles.heroSection}>
         <div className={styles.conceptText}>
           <p>
-            思い出のひとつに
+            古きを生かし、
             <br />
-            真志を、、{/* 改行を追加 */}
+            未来を創る。{/* 改行を追加 */}
           </p>
         </div>
       </div>
