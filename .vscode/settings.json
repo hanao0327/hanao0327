@@ -13,11 +13,7 @@
     "servers": {
       "chrome-devtools": {
         "command": "npx",
-        "args": [
-          "-y",
-          "@anthropic-ai/claude-code-runner@latest",
-          "chrome-devtools"
-        ]
+        "args": ["-y", "chrome-devtools-mcp@0.11.0"]
       }
     }
   }
