@@ -1,6 +1,7 @@
 import './globals.css';
 import Header from './(components)/header/header';
 import styles from './(components)/header/header.module.css';
+import { LanguageProvider } from './context/LanguageContext';
 
 export const metadata = {
   title: 'ドミトリー予約サイト',
@@ -15,8 +16,10 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className="bg-gray-50">
-        <Header />
-        <main className="pt-16">{children}</main>
+        <LanguageProvider>
+          <Header />
+          <main className="pt-16">{children}</main>
+        </LanguageProvider>
       </body>
     </html>
   );

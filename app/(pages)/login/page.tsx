@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './login.module.css';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -12,6 +13,7 @@ export default function LoginPage() {
   const [remember, setRemember] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const { t, language } = useLanguage();
 
   const router = useRouter();
 
@@ -26,7 +28,9 @@ export default function LoginPage() {
       router.push('/booking');
     } catch (err) {
       setError(
-        'ログインに失敗しました。メールアドレスとパスワードをご確認ください。'
+        language === 'ja'
+          ? 'ログインに失敗しました。メールアドレスとパスワードをご確認ください。'
+          : 'Login failed. Please check your email and password.'
       );
     } finally {
       setIsLoading(false);
@@ -41,8 +45,12 @@ export default function LoginPage() {
             <span>真志</span>
           </div>
 
-          <h1>ログイン</h1>
-          <p className={styles.subtitle}>アカウントにログインして予約を管理</p>
+          <h1>{t('login.title')}</h1>
+          <p className={styles.subtitle}>
+            {language === 'ja'
+              ? 'アカウントにログインして予約を管理'
+              : 'Log in to your account to manage reservations'}
+          </p>
 
           {error && (
             <div className={styles.error}>
@@ -59,7 +67,7 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit}>
             <div className={styles.field}>
-              <label htmlFor="email">メールアドレス</label>
+              <label htmlFor="email">{t('login.email')}</label>
               <div className={styles.inputWrapper}>
                 <svg viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
@@ -78,9 +86,9 @@ export default function LoginPage() {
 
             <div className={styles.field}>
               <div className={styles.labelFlex}>
-                <label htmlFor="password">パスワード</label>
+                <label htmlFor="password">{t('login.password')}</label>
                 <Link href="/forgot-password" className={styles.link}>
-                  パスワードをお忘れですか？
+                  {t('login.forgot')}
                 </Link>
               </div>
               <div className={styles.inputWrapper}>
@@ -109,7 +117,9 @@ export default function LoginPage() {
                   checked={remember}
                   onChange={(e) => setRemember(e.target.checked)}
                 />
-                <span>ログイン状態を保持する</span>
+                <span>
+                  {language === 'ja' ? 'ログイン状態を保持する' : 'Remember me'}
+                </span>
               </label>
             </div>
 
@@ -118,11 +128,17 @@ export default function LoginPage() {
               className={styles.button}
               disabled={isLoading}
             >
-              {isLoading ? '読み込み中...' : 'ログイン'}
+              {isLoading
+                ? language === 'ja'
+                  ? '読み込み中...'
+                  : 'Loading...'
+                : t('login.submit')}
             </button>
           </form>
 
-          <div className={styles.divider}>または</div>
+          <div className={styles.divider}>
+            {language === 'ja' ? 'または' : 'or'}
+          </div>
 
           <div className={styles.social}>
             <button className={`${styles.socialBtn} ${styles.google}`}>
@@ -140,9 +156,9 @@ export default function LoginPage() {
           </div>
 
           <div className={styles.signup}>
-            <p>アカウントをお持ちでない方は</p>
+            <p>{t('login.signup')}</p>
             <Link href="/signup" className={styles.link}>
-              新規登録
+              {t('login.signup.link')}
             </Link>
           </div>
         </div>
@@ -150,7 +166,7 @@ export default function LoginPage() {
         <div className={styles.image}>
           <Image
             src="/images/dormitory-interior.jpg"
-            alt="ドミトリー内観"
+            alt={language === 'ja' ? 'ドミトリー内観' : 'Dormitory Interior'}
             fill
             sizes="(max-width: 768px) 0vw, 50vw"
             priority
@@ -158,8 +174,16 @@ export default function LoginPage() {
           />
           <div className={styles.overlay}>
             <div className={styles.welcome}>
-              <h2>ドミトリー真志へようこそ</h2>
-              <p>快適な滞在をお約束します</p>
+              <h2>
+                {language === 'ja'
+                  ? 'ドミトリー真志へようこそ'
+                  : 'Welcome to Dormitory Masashi'}
+              </h2>
+              <p>
+                {language === 'ja'
+                  ? '快適な滞在をお約束します'
+                  : 'We promise a comfortable stay'}
+              </p>
             </div>
           </div>
         </div>

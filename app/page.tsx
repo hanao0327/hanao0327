@@ -2,10 +2,12 @@
 
 import { useState } from 'react';
 import styles from './Home.module.css';
+import { useLanguage } from './context/LanguageContext';
 
 export default function Home() {
   // アクセス情報のタブ切り替え用state
   const [activeLocation, setActiveLocation] = useState('tokoname');
+  const { t, language } = useLanguage();
 
   return (
     <div>
@@ -13,9 +15,9 @@ export default function Home() {
       <div className={styles.heroSection}>
         <div className={styles.conceptText}>
           <p>
-            古きを生かし、
+            {t('home.hero.text1')}
             <br />
-            未来を創る。{/* 改行を追加 */}
+            {t('home.hero.text2')}
           </p>
         </div>
       </div>
@@ -23,7 +25,9 @@ export default function Home() {
       <div className={styles.container}>
         {/* ドミトリーの紹介 - デザイン重視に変更 */}
         <section className={styles.dormitorySection}>
-          <h2 className={styles.dormitoryHeading}>ドミトリーとは</h2>
+          <h2 className={styles.dormitoryHeading}>
+            {t('home.dormitory.title')}
+          </h2>
           <div className={styles.dormitoryDivider}></div>
 
           <div className={styles.dormitoryContainer}>
@@ -47,10 +51,10 @@ export default function Home() {
                 </div>
                 <div className={styles.dormitoryFeatureText}>
                   <h3 className={styles.dormitoryFeatureTitle}>
-                    相部屋の宿泊施設
+                    {t('home.dormitory.feature1.title')}
                   </h3>
                   <p className={styles.dormitoryFeatureDescription}>
-                    ドミトリーは、知らない人同士が同じ部屋で寝泊まりし交流のできる相部屋の宿泊施設です。
+                    {t('home.dormitory.feature1.desc')}
                   </p>
                 </div>
               </div>
@@ -63,10 +67,10 @@ export default function Home() {
                 </div>
                 <div className={styles.dormitoryFeatureText}>
                   <h3 className={styles.dormitoryFeatureTitle}>
-                    プライバシーと交流
+                    {t('home.dormitory.feature2.title')}
                   </h3>
                   <p className={styles.dormitoryFeatureDescription}>
-                    ご自身のプライベートを守りながらも、他の旅行者との交流ができる絶妙なバランスの空間です。
+                    {t('home.dormitory.feature2.desc')}
                   </p>
                 </div>
               </div>
@@ -78,9 +82,11 @@ export default function Home() {
                   </svg>
                 </div>
                 <div className={styles.dormitoryFeatureText}>
-                  <h3 className={styles.dormitoryFeatureTitle}>特別な体験</h3>
+                  <h3 className={styles.dormitoryFeatureTitle}>
+                    {t('home.dormitory.feature3.title')}
+                  </h3>
                   <p className={styles.dormitoryFeatureDescription}>
-                    ドミトリーならではの少し変わった寝泊りを楽しめる、旅の新しい形の体験ができます。
+                    {t('home.dormitory.feature3.desc')}
                   </p>
                 </div>
               </div>
@@ -90,7 +96,9 @@ export default function Home() {
 
         {/* 設備内容 - デザイン重視に変更 */}
         <section className={styles.facilitiesSection}>
-          <h2 className={styles.facilitiesHeading}>設備内容</h2>
+          <h2 className={styles.facilitiesHeading}>
+            {t('home.facilities.title')}
+          </h2>
           <div className={styles.facilitiesDivider}></div>
 
           <div className={styles.facilitiesGrid}>
@@ -99,7 +107,7 @@ export default function Home() {
               <div className={styles.facilityImageContainer}>
                 <img
                   src="/images/share.jpg"
-                  alt="共有スペース"
+                  alt={t('home.facilities.common')}
                   className={styles.facilityImage}
                 />
                 <div className={styles.facilityOverlay}>
@@ -107,9 +115,11 @@ export default function Home() {
                 </div>
               </div>
               <div className={styles.facilityContent}>
-                <h3 className={styles.facilityTitle}>共有スペース</h3>
+                <h3 className={styles.facilityTitle}>
+                  {t('home.facilities.common')}
+                </h3>
                 <p className={styles.facilityDescription}>
-                  他の旅行者との交流を楽しめる開放的な空間です。
+                  {t('home.facilities.common.desc')}
                 </p>
               </div>
             </div>
@@ -119,7 +129,7 @@ export default function Home() {
               <div className={styles.facilityImageContainer}>
                 <img
                   src="/images/kitchen.jpg"
-                  alt="キッチン"
+                  alt={t('home.facilities.kitchen')}
                   className={styles.facilityImage}
                 />
                 <div className={styles.facilityOverlay}>
@@ -127,9 +137,11 @@ export default function Home() {
                 </div>
               </div>
               <div className={styles.facilityContent}>
-                <h3 className={styles.facilityTitle}>キッチン</h3>
+                <h3 className={styles.facilityTitle}>
+                  {t('home.facilities.kitchen')}
+                </h3>
                 <p className={styles.facilityDescription}>
-                  自炊可能な設備が整ったキッチンを完備しています。
+                  {t('home.facilities.kitchen.desc')}
                 </p>
               </div>
             </div>
@@ -139,7 +151,7 @@ export default function Home() {
               <div className={styles.facilityImageContainer}>
                 <img
                   src="/images/bedroom.jpg"
-                  alt="ベッドルーム"
+                  alt={t('home.facilities.bedroom')}
                   className={styles.facilityImage}
                 />
                 <div className={styles.facilityOverlay}>
@@ -147,9 +159,11 @@ export default function Home() {
                 </div>
               </div>
               <div className={styles.facilityContent}>
-                <h3 className={styles.facilityTitle}>ベッドルーム</h3>
+                <h3 className={styles.facilityTitle}>
+                  {t('home.facilities.bedroom')}
+                </h3>
                 <p className={styles.facilityDescription}>
-                  快適な睡眠環境を提供するベッドスペースです。
+                  {t('home.facilities.bedroom.desc')}
                 </p>
               </div>
             </div>
@@ -159,7 +173,7 @@ export default function Home() {
               <div className={styles.facilityImageContainer}>
                 <img
                   src="/images/locker.jpg"
-                  alt="ロッカー"
+                  alt={t('home.facilities.locker')}
                   className={styles.facilityImage}
                 />
                 <div className={styles.facilityOverlay}>
@@ -167,9 +181,11 @@ export default function Home() {
                 </div>
               </div>
               <div className={styles.facilityContent}>
-                <h3 className={styles.facilityTitle}>ロッカー</h3>
+                <h3 className={styles.facilityTitle}>
+                  {t('home.facilities.locker')}
+                </h3>
                 <p className={styles.facilityDescription}>
-                  貴重品を安全に保管できるセキュリティロッカーです。
+                  {t('home.facilities.locker.desc')}
                 </p>
               </div>
             </div>
@@ -179,7 +195,7 @@ export default function Home() {
               <div className={styles.facilityImageContainer}>
                 <img
                   src="/images/bathroom.jpg"
-                  alt="バスルーム"
+                  alt={t('home.facilities.bathroom')}
                   className={styles.facilityImage}
                 />
                 <div className={styles.facilityOverlay}>
@@ -187,9 +203,11 @@ export default function Home() {
                 </div>
               </div>
               <div className={styles.facilityContent}>
-                <h3 className={styles.facilityTitle}>バスルーム</h3>
+                <h3 className={styles.facilityTitle}>
+                  {t('home.facilities.bathroom')}
+                </h3>
                 <p className={styles.facilityDescription}>
-                  清潔で使いやすいバスルームを完備しています。
+                  {t('home.facilities.bathroom.desc')}
                 </p>
               </div>
             </div>
@@ -199,7 +217,7 @@ export default function Home() {
               <div className={styles.facilityImageContainer}>
                 <img
                   src="/images/toilet.jpg"
-                  alt="トイレ"
+                  alt={t('home.facilities.toilet')}
                   className={styles.facilityImage}
                 />
                 <div className={styles.facilityOverlay}>
@@ -207,9 +225,11 @@ export default function Home() {
                 </div>
               </div>
               <div className={styles.facilityContent}>
-                <h3 className={styles.facilityTitle}>トイレ</h3>
+                <h3 className={styles.facilityTitle}>
+                  {t('home.facilities.toilet')}
+                </h3>
                 <p className={styles.facilityDescription}>
-                  清潔なトイレを常に維持しています。
+                  {t('home.facilities.toilet.desc')}
                 </p>
               </div>
             </div>
@@ -218,14 +238,12 @@ export default function Home() {
 
         {/* アクセス - 切り替え可能なタブデザインに変更 */}
         <section id="access" className={styles.accessSection}>
-          <h2 className={styles.accessHeading}>アクセス</h2>
+          <h2 className={styles.accessHeading}>{t('home.access.title')}</h2>
           <div className={styles.accessDivider}></div>
 
           {/* アクセス説明文 */}
           <div className={styles.accessDescription}>
-            <p className={styles.accessIntro}>
-              ドミトリー真志は常滑市と岡崎市に拠点を構えています。詳細なアクセス情報は以下をご覧ください。
-            </p>
+            <p className={styles.accessIntro}>{t('home.access.intro')}</p>
           </div>
 
           {/* ロケーション切り替えタブ */}
@@ -234,13 +252,15 @@ export default function Home() {
               className={`${styles.locationTab} ${activeLocation === 'tokoname' ? styles.activeTab : ''}`}
               onClick={() => setActiveLocation('tokoname')}
             >
-              <span className={styles.locationIcon}>📍</span>常滑店
+              <span className={styles.locationIcon}>📍</span>
+              {t('home.access.tokoname')}
             </button>
             <button
-              className={`${styles.locationTab} ${activeLocation === 'okazaki' ? styles.activeTab : ''}`}
-              onClick={() => setActiveLocation('okazaki')}
+              className={`${styles.locationTab} ${activeLocation === 'inuyama' ? styles.activeTab : ''}`}
+              onClick={() => setActiveLocation('inuyama')}
             >
-              <span className={styles.locationIcon}>📍</span>岡崎店
+              <span className={styles.locationIcon}>📍</span>
+              {t('home.access.inuyama')}
             </button>
           </div>
 
@@ -248,6 +268,23 @@ export default function Home() {
           <div
             className={`${styles.locationContent} ${activeLocation === 'tokoname' ? styles.activeContent : ''}`}
           >
+            {/* 常滑店の特徴紹介 */}
+            <div className={styles.locationIntro}>
+              <h3 className={styles.locationIntroTitle}>
+                {t('home.access.tokoname.title')}
+              </h3>
+              <p className={styles.locationIntroText}>
+                {t('home.access.tokoname.desc')}
+              </p>
+              <div className={styles.locationGallery}>
+                <div className={styles.galleryImage}>
+                  <img src="/images/tokoname1.jpg" alt="常滑店の外観" />
+                </div>
+                <div className={styles.galleryImage}>
+                  <img src="/images/tokoname2.jpg" alt="常滑店の内装" />
+                </div>
+              </div>
+            </div>
             <div className={styles.accessCardContainer}>
               <div className={styles.accessCard}>
                 <div className={styles.accessIconWrapper}>
@@ -259,7 +296,9 @@ export default function Home() {
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                   </svg>
                 </div>
-                <h3 className={styles.accessCardTitle}>住所</h3>
+                <h3 className={styles.accessCardTitle}>
+                  {t('home.access.address')}
+                </h3>
                 <p className={styles.accessCardText}>
                   愛知県常滑市市場町1丁目26
                 </p>
@@ -275,9 +314,13 @@ export default function Home() {
                     <path d="M12 2c-4.42 0-8 3.58-8 8 0 1.95.7 3.73 1.86 5.12L12 22l6.14-6.88C19.3 13.73 20 11.95 20 10c0-4.42-3.58-8-8-8zm-2 9.5v-2h4v2h-4z" />
                   </svg>
                 </div>
-                <h3 className={styles.accessCardTitle}>最寄り駅</h3>
+                <h3 className={styles.accessCardTitle}>
+                  {t('home.access.station')}
+                </h3>
                 <p className={styles.accessCardText}>
-                  名鉄常滑線 常滑駅から徒歩15分
+                  {language === 'ja'
+                    ? '名鉄常滑線 常滑駅から徒歩15分'
+                    : '15 min walk from Meitetsu Tokoname Station'}
                 </p>
               </div>
 
@@ -291,7 +334,9 @@ export default function Home() {
                     <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z" />
                   </svg>
                 </div>
-                <h3 className={styles.accessCardTitle}>電話番号</h3>
+                <h3 className={styles.accessCardTitle}>
+                  {t('home.access.phone')}
+                </h3>
                 <p className={styles.accessCardText}>090-1255-4721</p>
               </div>
 
@@ -305,7 +350,9 @@ export default function Home() {
                     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                   </svg>
                 </div>
-                <h3 className={styles.accessCardTitle}>メールアドレス</h3>
+                <h3 className={styles.accessCardTitle}>
+                  {t('home.access.email')}
+                </h3>
                 <p className={styles.accessCardText}>tokoname@domitory.jp</p>
               </div>
             </div>
@@ -322,10 +369,27 @@ export default function Home() {
             </div>
           </div>
 
-          {/* アクセス情報（岡崎） */}
+          {/* アクセス情報（犬山） */}
           <div
-            className={`${styles.locationContent} ${activeLocation === 'okazaki' ? styles.activeContent : ''}`}
+            className={`${styles.locationContent} ${activeLocation === 'inuyama' ? styles.activeContent : ''}`}
           >
+            {/* 犬山店の特徴紹介 */}
+            <div className={styles.locationIntro}>
+              <h3 className={styles.locationIntroTitle}>
+                {t('home.access.inuyama.title')}
+              </h3>
+              <p className={styles.locationIntroText}>
+                {t('home.access.inuyama.desc')}
+              </p>
+              <div className={styles.locationGallery}>
+                <div className={styles.galleryImage}>
+                  <img src="/images/inuyama1.jpg" alt="犬山店の外観" />
+                </div>
+                <div className={styles.galleryImage}>
+                  <img src="/images/inuyama2.jpg" alt="犬山店の内装" />
+                </div>
+              </div>
+            </div>
             <div className={styles.accessCardContainer}>
               <div className={styles.accessCard}>
                 <div className={styles.accessIconWrapper}>
@@ -337,9 +401,11 @@ export default function Home() {
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                   </svg>
                 </div>
-                <h3 className={styles.accessCardTitle}>住所</h3>
+                <h3 className={styles.accessCardTitle}>
+                  {t('home.access.address')}
+                </h3>
                 <p className={styles.accessCardText}>
-                  愛知県岡崎市明大寺町字長泉8
+                  愛知県犬山市犬山西古券60
                 </p>
               </div>
 
@@ -353,9 +419,13 @@ export default function Home() {
                     <path d="M12 2c-4.42 0-8 3.58-8 8 0 1.95.7 3.73 1.86 5.12L12 22l6.14-6.88C19.3 13.73 20 11.95 20 10c0-4.42-3.58-8-8-8zm-2 9.5v-2h4v2h-4z" />
                   </svg>
                 </div>
-                <h3 className={styles.accessCardTitle}>最寄り駅</h3>
+                <h3 className={styles.accessCardTitle}>
+                  {t('home.access.station')}
+                </h3>
                 <p className={styles.accessCardText}>
-                  名鉄名古屋本線 東岡崎駅から徒歩10分
+                  {language === 'ja'
+                    ? '名鉄犬山線 犬山駅から徒歩10分'
+                    : '10 min walk from Meitetsu Inuyama Station'}
                 </p>
               </div>
 
@@ -369,7 +439,9 @@ export default function Home() {
                     <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z" />
                   </svg>
                 </div>
-                <h3 className={styles.accessCardTitle}>電話番号</h3>
+                <h3 className={styles.accessCardTitle}>
+                  {t('home.access.phone')}
+                </h3>
                 <p className={styles.accessCardText}>090-8546-7832</p>
               </div>
 
@@ -383,15 +455,17 @@ export default function Home() {
                     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                   </svg>
                 </div>
-                <h3 className={styles.accessCardTitle}>メールアドレス</h3>
-                <p className={styles.accessCardText}>okazaki@domitory.jp</p>
+                <h3 className={styles.accessCardTitle}>
+                  {t('home.access.email')}
+                </h3>
+                <p className={styles.accessCardText}>inuyama@domitory.jp</p>
               </div>
             </div>
 
-            {/* 地図（岡崎） */}
+            {/* 地図（犬山） */}
             <div className={styles.mapWrapper}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3268.0422903873824!2d137.16835857404685!3d34.95705517311124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60050e31d0f7dfdd%3A0x27b63e0cdd9375f6!2z44CSNDQwLTAwMDIg5oSb55-l55yM5bKh5bSO5biC5piO5aSn5a-677yY!5e0!3m2!1sja!2sjp!4v1687133170265!5m2!1sja!2sjp"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3257.4539478367147!2d136.94359!3d35.388389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003a5c99b1d4b87%3A0x8f7a1d5c6d9b9a9a!2z54qs5bGx5Z-O!5e0!3m2!1sja!2sjp!4v1687133170265!5m2!1sja!2sjp"
                 className={styles.mapFrame}
                 allowFullScreen={true}
                 loading="lazy"
