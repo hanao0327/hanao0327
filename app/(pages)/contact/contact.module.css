@@ -1,392 +1,845 @@
-/* app/contact/contact.module.css */
+/* app/contact/contact.module.css - モダンなお問い合わせページ */
 .contactPage {
-  color: #333;
+  color: #1f2937;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  min-height: 100vh;
 }
 
+/* ===== ヒーローセクション ===== */
 .heroSection {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/contact-hero.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 300px;
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(79, 70, 229, 0.95) 0%,
+    rgba(99, 102, 241, 0.9) 100%
+  );
+  min-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
-  margin-bottom: 3rem;
+  margin-top: -130px;
+  padding-top: 130px;
+  overflow: hidden;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
 }
 
 .heroContent {
+  position: relative;
+  z-index: 1;
   max-width: 800px;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 }
 
 .heroContent h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .heroContent p {
-  font-size: 1.2rem;
-  opacity: 0.9;
+  font-size: 1.25rem;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
 }
 
+/* ===== コンテナ ===== */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
+  position: relative;
 }
 
+/* ===== お問い合わせセクション ===== */
 .contactSection {
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
-  margin-bottom: 4rem;
+  padding: 4rem 0;
+  margin-top: -60px;
+  position: relative;
+  z-index: 10;
 }
 
+/* ===== お問い合わせ情報カード ===== */
 .contactInfo {
-  padding: 2rem 0;
+  order: 2;
 }
 
 .contactCard {
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  padding: 2rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+  border-radius: 24px;
+  padding: 3rem;
+  color: white;
+  box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.contactCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
 .contactCard h2 {
-  font-size: 1.8rem;
+  font-size: 1.75rem;
   margin-bottom: 1rem;
-  color: #4f46e5;
+  color: white;
+  font-weight: 700;
+}
+
+.contactCard > p {
+  font-size: 1rem;
+  opacity: 0.85;
+  line-height: 1.8;
+  margin-bottom: 0;
 }
 
 .contactMethods {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .contactMethod {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 1.5rem;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.contactMethod:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(8px);
 }
 
 .methodIcon {
-  background-color: #eff6ff;
-  border-radius: 50%;
-  padding: 0.8rem;
-  margin-right: 1rem;
+  background: linear-gradient(135deg, #818cf8 0%, #6366f1 100%);
+  border-radius: 14px;
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
 }
 
 .contactMethod h3 {
   font-size: 1.1rem;
-  margin-bottom: 0.3rem;
-  color: #4f46e5;
+  margin-bottom: 0.4rem;
+  color: white;
+  font-weight: 600;
 }
 
 .contactMethod p {
   margin: 0;
-  color: #4b5563;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
 }
 
 .note {
-  font-size: 0.9rem;
-  margin-top: 0.3rem;
-  color: #6b7280;
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+  color: rgba(255, 255, 255, 0.7);
 }
 
+/* ===== お問い合わせフォーム ===== */
 .contactForm {
-  background-color: white;
-  border-radius: 10px;
-  padding: 2rem;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  order: 1;
 }
 
 .contactForm h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
   color: #1f2937;
+  font-weight: 700;
 }
 
+.contactForm > form > p:first-of-type {
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+/* フォームグループ */
 .formGroup {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .formGroup label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
   font-weight: 600;
-  color: #4b5563;
+  color: #374151;
+  font-size: 0.95rem;
 }
 
 .required {
-  background-color: #ef4444;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
   color: white;
   font-size: 0.7rem;
-  padding: 0.1rem 0.4rem;
-  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
   margin-left: 0.5rem;
   vertical-align: middle;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 .optional {
-  background-color: #9ca3af;
-  color: white;
+  background: #e5e7eb;
+  color: #6b7280;
   font-size: 0.7rem;
-  padding: 0.1rem 0.4rem;
-  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
   margin-left: 0.5rem;
   vertical-align: middle;
+  font-weight: 500;
 }
 
-.input, .textarea {
+.input,
+.textarea {
   width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
   font-size: 1rem;
-  transition: border 0.3s, box-shadow 0.3s;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background: #f9fafb;
 }
 
-.input:focus, .textarea:focus {
+.input:hover,
+.textarea:hover {
+  border-color: #c7d2fe;
+  background: white;
+}
+
+.input:focus,
+.textarea:focus {
   outline: none;
   border-color: #4f46e5;
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
 }
 
-.inputError, .textareaError {
+.input::placeholder,
+.textarea::placeholder {
+  color: #9ca3af;
+}
+
+.textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.inputError,
+.textareaError {
   width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #ef4444;
-  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  border: 2px solid #ef4444;
+  border-radius: 12px;
   font-size: 1rem;
+  background: #fef2f2;
 }
 
 .errorText {
   color: #ef4444;
-  font-size: 0.9rem;
-  margin-top: 0.4rem;
-}
-
-.checkboxContainer {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
   display: flex;
   align-items: center;
+  gap: 0.3rem;
+}
+
+.errorText::before {
+  content: '⚠';
+  font-size: 0.9rem;
+}
+
+/* チェックボックス */
+.checkboxContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
 }
 
 .checkbox {
-  margin-right: 0.75rem;
-  transform: scale(1.2);
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  accent-color: #4f46e5;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .checkboxLabel {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+  line-height: 1.6;
 }
 
 .checkboxLabel a {
   color: #4f46e5;
   text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
 }
 
 .checkboxLabel a:hover {
+  color: #3730a3;
   text-decoration: underline;
 }
 
+/* 送信ボタン */
 .submitButton {
-  background-color: #4f46e5;
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
   color: white;
   border: none;
-  border-radius: 6px;
-  padding: 0.85rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: 14px;
+  padding: 1.1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s;
+  transition: all 0.3s ease;
   width: 100%;
-  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.submitButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.submitButton:hover::before {
+  left: 100%;
 }
 
 .submitButton:hover {
-  background-color: #4338ca;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px -5px rgba(79, 70, 229, 0.5);
+}
+
+.submitButton:active {
   transform: translateY(-1px);
 }
 
 .submitButton:disabled {
-  background-color: #9ca3af;
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
   cursor: not-allowed;
   transform: none;
+  box-shadow: none;
 }
 
+/* サンキューメッセージ */
 .thankYouMessage {
   text-align: center;
-  padding: 2rem;
+  padding: 3rem 2rem;
 }
 
 .checkmarkIcon {
-  background-color: #ecfdf5;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.5rem;
+  margin: 0 auto 2rem;
+  box-shadow: 0 15px 35px -10px rgba(16, 185, 129, 0.5);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 15px 35px -10px rgba(16, 185, 129, 0.5);
+  }
+  50% {
+    box-shadow: 0 20px 45px -10px rgba(16, 185, 129, 0.6);
+  }
 }
 
 .thankYouMessage h2 {
+  font-size: 1.75rem;
   color: #10b981;
   margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.thankYouMessage p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .button {
-  background-color: #f3f4f6;
+  background: #f3f4f6;
   color: #4b5563;
   border: none;
-  border-radius: 6px;
-  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
-  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
 }
 
 .button:hover {
-  background-color: #e5e7eb;
+  background: #e5e7eb;
+  transform: translateY(-2px);
 }
 
+/* ===== マップセクション ===== */
 .mapSection {
-  margin-bottom: 4rem;
+  padding: 4rem 0;
 }
 
 .mapSection h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
   color: #1f2937;
+  font-weight: 700;
+  text-align: center;
 }
 
 .mapContainer {
-  border-radius: 10px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
 }
 
 .accessInfo {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }
 
 .accessItem {
-  background-color: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 8px;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.accessItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
 .accessItem h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
   color: #4f46e5;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .accessItem p {
   margin: 0.5rem 0;
-  color: #4b5563;
+  color: #6b7280;
+  line-height: 1.7;
 }
 
+/* ===== FAQセクション ===== */
 .faqSection {
-  margin-bottom: 5rem;
+  padding: 4rem 0 5rem;
 }
 
 .faqSection h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
   color: #1f2937;
+  font-weight: 700;
+  text-align: center;
 }
 
 .faqList {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .faqItem {
-  background-color: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 1.5rem;
-  transition: box-shadow 0.3s;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
 .faqItem:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+  border-color: rgba(79, 70, 229, 0.2);
 }
 
 .faqItem h3 {
   font-size: 1.1rem;
   margin-bottom: 0.75rem;
   color: #1f2937;
+  font-weight: 700;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.faqItem h3::before {
+  content: 'Q';
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 
 .faqItem p {
-  color: #4b5563;
+  color: #6b7280;
   margin: 0;
+  line-height: 1.8;
+  padding-left: 2.5rem;
 }
 
 .moreFaq {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   text-align: center;
 }
 
 .linkButton {
-  display: inline-block;
-  background-color: #f3f4f6;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
   color: #4b5563;
   text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
+  padding: 1rem 2rem;
+  border-radius: 12px;
   font-weight: 600;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .linkButton:hover {
-  background-color: #e5e7eb;
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.3);
 }
 
-/* レスポンシブデザイン */
+/* ===== レスポンシブデザイン ===== */
 @media (min-width: 768px) {
   .heroSection {
-    height: 400px;
+    min-height: 450px;
   }
-  
-  .heroContent h1 {
-    font-size: 3.5rem;
-  }
-  
+
   .contactSection {
     grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: -80px;
   }
-  
-  .accessInfo {
-    grid-template-columns: 1fr 1fr;
+
+  .contactInfo {
+    order: 1;
   }
-  
+
+  .contactForm {
+    order: 2;
+  }
+
   .faqList {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .submitButton {
     width: auto;
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding: 1.1rem 3rem;
   }
 }
 
 @media (min-width: 1024px) {
+  .heroContent h1 {
+    font-size: 4rem;
+  }
+
+  .contactSection {
+    gap: 3rem;
+  }
+
   .faqList {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 768px以下のモバイル対応 */
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 320px;
+    margin-top: -65px;
+    padding-top: 65px;
+  }
+
+  .heroContent {
+    padding: 0 1.5rem;
+  }
+
+  .heroContent h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .heroContent p {
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .contactSection {
+    gap: 2rem;
+    padding: 2rem 0;
+    margin-top: 0;
+  }
+
+  .contactCard,
+  .contactForm {
+    padding: 2rem;
+    border-radius: 20px;
+  }
+
+  .contactCard h2,
+  .contactForm h2 {
+    font-size: 1.5rem;
+  }
+
+  .contactMethod {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .methodIcon {
+    padding: 0.75rem;
+    border-radius: 10px;
+  }
+
+  .input,
+  .textarea {
+    padding: 0.9rem 1rem;
+    border-radius: 10px;
+  }
+
+  .submitButton {
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+  }
+
+  .faqItem {
+    padding: 1.5rem;
+    border-radius: 14px;
+  }
+
+  .mapSection,
+  .faqSection {
+    padding: 3rem 0;
+  }
+}
+
+/* 480px以下の小さいモバイル対応 */
+@media (max-width: 480px) {
+  .heroSection {
+    min-height: 280px;
+    margin-top: -56px;
+    padding-top: 56px;
+  }
+
+  .heroContent h1 {
+    font-size: 1.6rem;
+  }
+
+  .heroContent p {
+    font-size: 0.9rem;
+  }
+
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .contactCard,
+  .contactForm {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .contactCard h2,
+  .contactForm h2 {
+    font-size: 1.3rem;
+  }
+
+  .contactMethods {
+    gap: 1rem;
+  }
+
+  .contactMethod {
+    padding: 0.875rem;
+    gap: 1rem;
+  }
+
+  .contactMethod h3 {
+    font-size: 1rem;
+  }
+
+  .contactMethod p {
+    font-size: 0.9rem;
+  }
+
+  .methodIcon {
+    padding: 0.625rem;
+  }
+
+  .formGroup {
+    margin-bottom: 1.25rem;
+  }
+
+  .formGroup label {
+    font-size: 0.9rem;
+  }
+
+  .input,
+  .textarea {
+    padding: 0.8rem 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .checkboxContainer {
+    padding: 0.875rem;
+    border-radius: 10px;
+  }
+
+  .checkboxLabel {
+    font-size: 0.8rem;
+  }
+
+  .submitButton {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
+    border-radius: 10px;
+  }
+
+  .thankYouMessage {
+    padding: 2rem 1.5rem;
+  }
+
+  .checkmarkIcon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .thankYouMessage h2 {
+    font-size: 1.4rem;
+  }
+
+  .thankYouMessage p {
+    font-size: 1rem;
+  }
+
+  .faqItem {
+    padding: 1.25rem;
+  }
+
+  .faqItem h3 {
+    font-size: 1rem;
+    gap: 0.6rem;
+  }
+
+  .faqItem h3::before {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .faqItem p {
+    font-size: 0.9rem;
+    padding-left: 2rem;
+  }
+
+  .accessItem {
+    padding: 1.5rem;
+  }
+
+  .accessItem h3 {
+    font-size: 1.1rem;
+  }
+
+  .linkButton {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
   }
 }

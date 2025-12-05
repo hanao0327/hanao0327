@@ -1,5 +1,5 @@
 .container {
-  padding-top: 80px;
+  padding-top: 20px;
   min-height: 100vh;
   background-color: #f5f7fa;
   display: flex;
@@ -306,7 +306,7 @@
 
 @media (max-width: 640px) {
   .container {
-    padding-top: 60px;
+    padding-top: 10px;
   }
 
   .card {
@@ -321,5 +321,255 @@
 
   .social {
     grid-template-columns: 1fr;
+  }
+}
+
+/* 768px以下のモバイル対応強化 */
+@media (max-width: 768px) {
+  .container {
+    padding-top: 10px;
+    align-items: flex-start;
+    padding-bottom: 20px;
+  }
+
+  .card {
+    flex-direction: column;
+    max-width: 100%;
+    margin: 0.75rem;
+    border-radius: 10px;
+  }
+
+  .form {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .form h1 {
+    font-size: 22px;
+    margin-bottom: 0.3rem;
+  }
+
+  .subtitle {
+    margin-bottom: 1.5rem;
+    font-size: 14px;
+  }
+
+  .error {
+    padding: 10px;
+    font-size: 13px;
+    margin-bottom: 1.2rem;
+  }
+
+  .error svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .field {
+    margin-bottom: 1rem;
+  }
+
+  .field label {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+
+  .link {
+    font-size: 13px;
+  }
+
+  .inputWrapper svg {
+    width: 18px;
+    height: 18px;
+    left: 10px;
+  }
+
+  .inputWrapper input {
+    padding: 9px 9px 9px 36px;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+
+  .remember {
+    margin-bottom: 1.2rem;
+  }
+
+  .remember label {
+    font-size: 13px;
+  }
+
+  .button {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+
+  .divider {
+    margin: 1.2rem 0;
+    font-size: 13px;
+  }
+
+  .social {
+    gap: 10px;
+    margin-bottom: 1.2rem;
+  }
+
+  .socialBtn {
+    padding: 9px;
+    font-size: 13px;
+    border-radius: 6px;
+  }
+
+  .socialBtn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .signup {
+    margin-top: 1.2rem;
+  }
+
+  .signup p {
+    font-size: 13px;
+  }
+}
+
+/* 480px以下の小さいモバイル対応 */
+@media (max-width: 480px) {
+  .container {
+    padding-top: 5px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .card {
+    margin: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  }
+
+  .form {
+    padding: 1.2rem;
+  }
+
+  .logo {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+    margin-bottom: 1.2rem;
+    border-radius: 6px;
+  }
+
+  .form h1 {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    margin-bottom: 1.2rem;
+    font-size: 13px;
+  }
+
+  .error {
+    padding: 8px;
+    font-size: 12px;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+  }
+
+  .error svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .field {
+    margin-bottom: 0.9rem;
+  }
+
+  .field label {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .labelFlex {
+    margin-bottom: 4px;
+  }
+
+  .link {
+    font-size: 12px;
+  }
+
+  .inputWrapper svg {
+    width: 16px;
+    height: 16px;
+    left: 9px;
+  }
+
+  .inputWrapper input {
+    padding: 8px 8px 8px 32px;
+    font-size: 13px;
+    border-radius: 5px;
+  }
+
+  .remember {
+    margin-bottom: 1rem;
+  }
+
+  .remember label {
+    font-size: 12px;
+  }
+
+  .remember input {
+    margin-right: 6px;
+    transform: scale(0.9);
+  }
+
+  .button {
+    padding: 9px;
+    font-size: 13px;
+    border-radius: 5px;
+  }
+
+  .divider {
+    margin: 1rem 0;
+    font-size: 12px;
+  }
+
+  .divider::before,
+  .divider::after {
+    width: calc(50% - 15px);
+  }
+
+  .social {
+    gap: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .socialBtn {
+    padding: 8px;
+    font-size: 12px;
+    border-radius: 5px;
+    gap: 6px;
+  }
+
+  .socialBtn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .signup {
+    margin-top: 1rem;
+  }
+
+  .signup p {
+    font-size: 12px;
+    margin-bottom: 6px;
   }
 }

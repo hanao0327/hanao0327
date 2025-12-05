@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './page.module.css';
+import { useLanguage } from '../../context/LanguageContext';
 // import { motion } from 'framer-motion'; // 使用しないためコメントアウト
 
 // 仮のデータ（修正）
@@ -121,6 +122,7 @@ type DormitoryId = 'dormitory1' | 'dormitory2';
 
 export default function BookingPage() {
   const router = useRouter();
+  const { t, language } = useLanguage();
   const [selectedDormitory, setSelectedDormitory] =
     useState<DormitoryId>('dormitory1');
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
@@ -140,16 +142,22 @@ export default function BookingPage() {
     }
   > = {
     dormitory1: {
-      name: '常滑ドミトリー',
+      name: language === 'ja' ? '常滑ドミトリー' : 'Tokoname Dormitory',
       capacity: 6,
       image: '/images/dormitory-male.jpg',
-      description: '常滑ドミトリー説明。最大６人',
+      description:
+        language === 'ja'
+          ? '常滑ドミトリー説明。最大６人'
+          : 'Tokoname Dormitory. Max 6 guests',
     },
     dormitory2: {
-      name: '岡崎ドミトリー',
+      name: language === 'ja' ? '犬山ドミトリー' : 'Inuyama Dormitory',
       capacity: 6,
       image: '/images/dormitory-female.jpg',
-      description: '岡崎ドミトリー説明。最大6人',
+      description:
+        language === 'ja'
+          ? '犬山ドミトリー説明。最大6人'
+          : 'Inuyama Dormitory. Max 6 guests',
     },
   };
 
@@ -251,10 +259,8 @@ export default function BookingPage() {
     <div className={styles.bookingContainer}>
       {/* 予約ページヘッダー */}
       <div className={styles.bookingHeader}>
-        <h1 className={styles.bookingTitle}>宿泊予約</h1>
-        <p className={styles.bookingSubtitle}>
-          ドミトリーを選択して、お好きな日付の予約状況を確認してください。
-        </p>
+        <h1 className={styles.bookingTitle}>{t('booking.title')}</h1>
+        <p className={styles.bookingSubtitle}>{t('booking.subtitle')}</p>
       </div>
 
       {/* ドミトリー選択 */}
@@ -277,7 +283,9 @@ export default function BookingPage() {
                 {dormitoryInfo[dormId as DormitoryId].name}
               </h3>
               <p className={styles.dormitoryCapacity}>
-                定員: {dormitoryInfo[dormId as DormitoryId].capacity}名
+                {language === 'ja' ? '定員' : 'Capacity'}:{' '}
+                {dormitoryInfo[dormId as DormitoryId].capacity}
+                {language === 'ja' ? '名' : ' guests'}
               </p>
               <p className={styles.dormitoryDescription}>
                 {dormitoryInfo[dormId as DormitoryId].description}
@@ -292,7 +300,9 @@ export default function BookingPage() {
         <div className={styles.calendarSection}>
           <div className={styles.calendarHeader}>
             <h2 className={styles.sectionTitle}>
-              {dormitoryInfo[selectedDormitory].name}の空き状況カレンダー
+              {language === 'ja'
+                ? `${dormitoryInfo[selectedDormitory].name}の空き状況カレンダー`
+                : `${dormitoryInfo[selectedDormitory].name} Availability Calendar`}
             </h2>
             <div className={styles.monthSelector}>
               <button onClick={handlePrevMonth} className={styles.monthButton}>
@@ -310,7 +320,9 @@ export default function BookingPage() {
                 </svg>
               </button>
               <span className={styles.currentMonth}>
-                {currentMonth.getFullYear()}年 {currentMonth.getMonth() + 1}月
+                {language === 'ja'
+                  ? `${currentMonth.getFullYear()}年 ${currentMonth.getMonth() + 1}月`
+                  : `${currentMonth.toLocaleString('en', { month: 'long' })} ${currentMonth.getFullYear()}`}
               </span>
               <button onClick={handleNextMonth} className={styles.monthButton}>
                 <svg
@@ -330,7 +342,10 @@ export default function BookingPage() {
           </div>
 
           <div className={styles.calendarGrid}>
-            {['日', '月', '火', '水', '木', '金', '土'].map((day, index) => (
+            {(language === 'ja'
+              ? ['日', '月', '火', '水', '木', '金', '土']
+              : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+            ).map((day, index) => (
               <div
                 key={day}
                 className={`${styles.calendarDayHeader} ${getDayOfWeekClass(index)}`}
@@ -366,7 +381,9 @@ export default function BookingPage() {
 
           {/* 凡例 */}
           <div className={styles.legend}>
-            <h3 className={styles.legendTitle}>空き状況の見方</h3>
+            <h3 className={styles.legendTitle}>
+              {language === 'ja' ? '空き状況の見方' : 'Availability Guide'}
+            </h3>
             <div className={styles.legendItems}>
               <div className={styles.legendItem}>
                 <span
@@ -374,7 +391,11 @@ export default function BookingPage() {
                 >
                   ◎
                 </span>
-                <span>空きあり (0~1人)</span>
+                <span>
+                  {language === 'ja'
+                    ? '空きあり (0~1人)'
+                    : 'Available (0-1 guests)'}
+                </span>
               </div>
               <div className={styles.legendItem}>
                 <span
@@ -382,7 +403,11 @@ export default function BookingPage() {
                 >
                   〇
                 </span>
-                <span>少し空きあり (2~3人)</span>
+                <span>
+                  {language === 'ja'
+                    ? '少し空きあり (2~3人)'
+                    : 'Some availability (2-3 guests)'}
+                </span>
               </div>
               <div className={styles.legendItem}>
                 <span
@@ -390,7 +415,11 @@ export default function BookingPage() {
                 >
                   △
                 </span>
-                <span>残りわずか (4~5人)</span>
+                <span>
+                  {language === 'ja'
+                    ? '残りわずか (4~5人)'
+                    : 'Limited (4-5 guests)'}
+                </span>
               </div>
               <div className={styles.legendItem}>
                 <span
@@ -398,7 +427,9 @@ export default function BookingPage() {
                 >
                   ×
                 </span>
-                <span>空きなし (6人)</span>
+                <span>
+                  {language === 'ja' ? '空きなし (6人)' : 'Full (6 guests)'}
+                </span>
               </div>
             </div>
           </div>
@@ -412,9 +443,9 @@ export default function BookingPage() {
                 <h2 className={styles.selectedDateTitle}>
                   {dormitoryInfo[selectedDormitory].name}
                   <br />
-                  {new Date(selectedDate).getFullYear()}年
-                  {new Date(selectedDate).getMonth() + 1}月
-                  {new Date(selectedDate).getDate()}日の予約状況
+                  {language === 'ja'
+                    ? `${new Date(selectedDate).getFullYear()}年${new Date(selectedDate).getMonth() + 1}月${new Date(selectedDate).getDate()}日の予約状況`
+                    : `Reservations for ${new Date(selectedDate).toLocaleDateString('en', { year: 'numeric', month: 'long', day: 'numeric' })}`}
                 </h2>
                 <span
                   className={`${styles.availabilityTag} ${getAvailabilityColor(availability || '')}`}
@@ -440,13 +471,17 @@ export default function BookingPage() {
                         d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                       />
                     </svg>
-                    <h3 className={styles.infoCardTitle}>予約者数</h3>
+                    <h3 className={styles.infoCardTitle}>
+                      {language === 'ja' ? '予約者数' : 'Guests'}
+                    </h3>
                   </div>
                   <div className={styles.infoCardContent}>
                     <span className={styles.infoCardValue}>
                       {reservations.length}
                     </span>
-                    <span className={styles.infoCardUnit}>人</span>
+                    <span className={styles.infoCardUnit}>
+                      {language === 'ja' ? '人' : ''}
+                    </span>
                   </div>
                 </div>
 
@@ -466,14 +501,18 @@ export default function BookingPage() {
                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    <h3 className={styles.infoCardTitle}>残り</h3>
+                    <h3 className={styles.infoCardTitle}>
+                      {language === 'ja' ? '残り' : 'Available'}
+                    </h3>
                   </div>
                   <div className={styles.infoCardContent}>
                     <span className={styles.infoCardValue}>
                       {dormitoryInfo[selectedDormitory].capacity -
                         reservations.length}
                     </span>
-                    <span className={styles.infoCardUnit}>ベッド</span>
+                    <span className={styles.infoCardUnit}>
+                      {language === 'ja' ? 'ベッド' : ' beds'}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -495,7 +534,7 @@ export default function BookingPage() {
                       d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                     />
                   </svg>
-                  予約者一覧
+                  {language === 'ja' ? '予約者一覧' : 'Guest List'}
                 </h3>
                 {reservations.length > 0 ? (
                   <div className={styles.guestCards}>
@@ -512,7 +551,9 @@ export default function BookingPage() {
                   </div>
                 ) : (
                   <p className={styles.emptyMessage}>
-                    予約者はいません。最初の予約者になりませんか？
+                    {language === 'ja'
+                      ? '予約者はいません。最初の予約者になりませんか？'
+                      : 'No reservations yet. Be the first to book!'}
                   </p>
                 )}
               </div>
@@ -521,7 +562,7 @@ export default function BookingPage() {
                 onClick={handleReservation}
                 className={styles.reservationButton}
               >
-                この日に予約する
+                {language === 'ja' ? 'この日に予約する' : 'Book this date'}
               </button>
             </div>
           ) : (
@@ -543,11 +584,14 @@ export default function BookingPage() {
                 </svg>
               </div>
               <h2 className={styles.emptyDetailsTitle}>
-                日付を選択してください
+                {language === 'ja'
+                  ? '日付を選択してください'
+                  : 'Please select a date'}
               </h2>
               <p className={styles.emptyDetailsText}>
-                カレンダーから日付を選択すると、
-                {dormitoryInfo[selectedDormitory].name}の予約状況が表示されます
+                {language === 'ja'
+                  ? `カレンダーから日付を選択すると、${dormitoryInfo[selectedDormitory].name}の予約状況が表示されます`
+                  : `Select a date from the calendar to view ${dormitoryInfo[selectedDormitory].name} availability`}
               </p>
             </div>
           )}

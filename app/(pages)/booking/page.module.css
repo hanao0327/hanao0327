@@ -457,27 +457,301 @@
 }
 
 @media (max-width: 768px) {
+  .bookingContainer {
+    padding: 20px 15px;
+    padding-top: 20px;
+  }
+
+  .bookingHeader {
+    margin-bottom: 25px;
+  }
+
   .bookingTitle {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .bookingSubtitle {
+    font-size: 0.9rem;
+  }
+
+  .bookingContent {
+    gap: 25px;
+  }
+
+  .calendarSection {
+    padding: 16px;
+  }
+
+  .sectionTitle {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  .monthSelector {
+    padding: 8px 12px;
+  }
+
+  .currentMonth {
+    font-size: 1rem;
+  }
+
+  .monthButton {
+    width: 32px;
+    height: 32px;
   }
 
   .calendarGrid {
     gap: 4px;
   }
 
+  .calendarDayHeader {
+    font-size: 0.75rem;
+    padding: 4px 0;
+  }
+
   .calendarDay {
     padding: 4px;
   }
 
+  .dateNumber {
+    font-size: 0.8rem;
+  }
+
+  .availabilityBadge {
+    font-size: 0.9rem;
+    width: 20px;
+    height: 20px;
+  }
+
+  .legend {
+    padding: 12px;
+  }
+
+  .legendTitle {
+    font-size: 0.85rem;
+  }
+
+  .legendItem {
+    font-size: 0.75rem;
+  }
+
+  .legendBadge {
+    width: 16px;
+    height: 16px;
+    font-size: 0.7rem;
+  }
+
+  .detailsSection {
+    padding: 16px;
+  }
+
+  .dateHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .selectedDateTitle {
+    font-size: 1.2rem;
+  }
+
+  .availabilityTag {
+    font-size: 1.1rem;
+    padding: 4px 10px;
+  }
+
   .reservationInfo {
     flex-direction: column;
+    gap: 12px;
+  }
+
+  .infoCard {
+    padding: 12px;
+  }
+
+  .infoCardTitle {
+    font-size: 0.9rem;
+  }
+
+  .infoCardValue {
+    font-size: 1.5rem;
+  }
+
+  .infoCardUnit {
+    font-size: 0.85rem;
+  }
+
+  .guestListTitle {
+    font-size: 1rem;
+  }
+
+  .guestCards {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 8px;
+  }
+
+  .guestCard {
+    padding: 10px;
+  }
+
+  .guestAvatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .guestName {
+    font-size: 0.75rem;
+  }
+
+  .reservationButton {
+    padding: 10px 20px;
+    font-size: 0.9rem;
   }
 
   .dormitorySelector {
     flex-direction: column;
+    gap: 15px;
   }
 
   .dormitoryCard {
     flex: 0 0 100%;
+    flex-direction: row;
+  }
+
+  .dormitoryImageContainer {
+    flex: 0 0 30%;
+    height: 100px;
+  }
+
+  .dormitoryInfo {
+    padding: 12px;
+  }
+
+  .dormitoryName {
+    font-size: 1rem;
+  }
+
+  .dormitoryCapacity {
+    font-size: 0.85rem;
+  }
+
+  .dormitoryDescription {
+    font-size: 0.8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* 小さいモバイル（480px以下） */
+@media (max-width: 480px) {
+  .bookingContainer {
+    padding: 15px 10px;
+    padding-top: 15px;
+  }
+
+  .bookingTitle {
+    font-size: 1.5rem;
+  }
+
+  .bookingSubtitle {
+    font-size: 0.85rem;
+  }
+
+  .calendarSection,
+  .detailsSection {
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  .sectionTitle {
+    font-size: 1rem;
+  }
+
+  .calendarGrid {
+    gap: 2px;
+  }
+
+  .calendarDayHeader {
+    font-size: 0.65rem;
+  }
+
+  .calendarDay {
+    padding: 2px;
+    border-radius: 4px;
+  }
+
+  .dateNumber {
+    font-size: 0.7rem;
+  }
+
+  .availabilityBadge {
+    font-size: 0.75rem;
+    width: 16px;
+    height: 16px;
+  }
+
+  .legend {
+    padding: 10px;
+  }
+
+  .legendItems {
+    gap: 6px;
+  }
+
+  .selectedDateTitle {
+    font-size: 1rem;
+  }
+
+  .availabilityTag {
+    font-size: 1rem;
+    padding: 3px 8px;
+  }
+
+  .infoCardValue {
+    font-size: 1.3rem;
+  }
+
+  .guestCards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .guestCard {
+    padding: 8px;
+  }
+
+  .guestAvatar {
+    width: 35px;
+    height: 35px;
+  }
+
+  .reservationButton {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+  }
+
+  .dormitoryImageContainer {
+    flex: 0 0 25%;
+    height: 80px;
+  }
+
+  .dormitoryInfo {
+    padding: 10px;
+  }
+
+  .dormitoryName {
+    font-size: 0.9rem;
+  }
+
+  .dormitoryCapacity {
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+  }
+
+  .dormitoryDescription {
+    font-size: 0.75rem;
+    -webkit-line-clamp: 1;
   }
 }
